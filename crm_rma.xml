@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="crm_return_line_tree_view_ars">
+            <field name="name">CRM - Claims Tree Return</field>
+            <field name="model">return.line</field>
+        	<field name="inherit_id" ref="crm_claim_rma.crm_return_line_tree_view"/>
+            <field name="arch" type="xml">
+            <field name="product_id" position="after">
+            	<field name="data_acqu_vend"/>
+            	<field name="stato_sigillo"/>
+            	<field name="production_id"/>
+            </field>
+
+			</field>    
+			</record> 
+    
+            <record model="ir.ui.view" id="crm_return_line_form_view_ars">
+            <field name="name">CRM - Claim product return line Form Ars</field>
+            <field name="model">return.line</field>
+            <field name="inherit_id" ref="crm_claim_rma.crm_return_line_form_view"/>
+            <field name="arch" type="xml">
+            <field name="product_id" position="after">
+            	<field name="data_acqu_vend"/>
+            	<field name="stato_sigillo"/>
+            	<field name="production_id"/>
+            </field>
+            
+            
+            </field>
+            </record>
+    
+       <record model="ir.ui.view" id="crm_product_exchange_tree_view_ars">
+        <field name="name">CRM - Product exchange Tree ars</field>
+        <field name="model">product.exchange</field>
+        <field name="inherit_id" ref="crm_claim_rma.crm_product_exchange_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="returned_product" position="after">
+            	<field name="returned_production_id"/>
+            
+            </field>
+            <field name="replacement_product" position="after">
+            	<field name="replacement_production_id"/>
+            
+            </field>
+            
+            
+            </field>
+        
+        </record>
+    
+    
+        <record model="ir.ui.view" id="crm_product_exchange_form_view_ars">
+        <field name="name">CRM - Product exchange Form</field>
+        <field name="model">product.exchange</field>
+    
+        <field name="inherit_id" ref="crm_claim_rma.crm_product_exchange_form_view"/>
+        <field name="arch" type="xml">
+            <field name="returned_product" position="after">
+            	<field name="returned_production_id"/>
+            
+            </field>
+            <field name="replacement_product" position="after">
+            	<field name="replacement_production_id"/>
+            
+            </field>
+            
+            
+            </field>
+        
+        </record>
+    
+    
+    
+     </data>
+</openerp>
+    
