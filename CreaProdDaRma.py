@@ -36,6 +36,14 @@ class production_from_returned_lines(osv.osv_memory):
         repair_obj = self.pool.get('mrp.repair')
         origine = "RMA/"+line.claim_id.sequence
         id_move = self.pool.get('stock.move').search(cr,uid,[('origin','=',origine)])
+        note = ""
+        if line.claim_id.description:
+            note+=line.claim_id.description+"\n"
+        if  line.claim_descr:
+            note+=line.claim_descr+"\n"
+        if  line.claim_origine:
+            note+=line.claim_origine+"\n"
+        
         if id_move: 
             vals = repair_obj.default_get(cr,uid,[],context)
             vals['product_id']=id
@@ -49,7 +57,7 @@ class production_from_returned_lines(osv.osv_memory):
             vals.update(move_data)
             vals['origin']=origin
             vals['production_id'] = line.production_id.id
-            vals['internal_notes'] = line.claim_id.description +'\n'+line.claim_descr+'\n'+line.claim_origine
+            vals['internal_notes'] = note
             vals['partner_id']= line.claim_id.partner_id.id
             vals['invoice_method']= 'none'
             vals['deliver_bool']=False

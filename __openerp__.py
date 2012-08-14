@@ -33,7 +33,7 @@
     'website': 'http://www.cgsoftware.it',
     'depends': ['crm_claim_rma','mrp'],
     'init_xml': [],
-    'update_xml': ['crm_rma.xml','CreaProdDaRma.xml'
+    'update_xml': ['crm_rma.xml','CreaProdDaRma.xml','rma_difetti.xml'
               #'security/ir.model.access.csv',
     ],
     'demo_xml': [], 
